@@ -320,7 +320,11 @@ const TopSeller = () => {
                             },
                           }}
                           navigation
-                          scrollbar={{ draggable: true }}
+                          scrollbar={{
+                            draggable: true,
+                            hide: true,
+                            enabled: false,
+                          }}
                         >
                           {item.dataTopSellerContent.map((item, index) => (
                             <SwiperSlide key={index}>

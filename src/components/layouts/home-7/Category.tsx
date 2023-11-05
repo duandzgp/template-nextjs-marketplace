@@ -97,7 +97,7 @@ const Category = () => {
                 },
               }}
               navigation
-              scrollbar={{ draggable: true }}
+              scrollbar={{ draggable: true, hide: true, enabled: false }}
             >
               {data.map((item, index) => (
                 <SwiperSlide key={index}>

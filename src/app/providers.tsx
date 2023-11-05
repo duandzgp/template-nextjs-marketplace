@@ -1,6 +1,7 @@
 "use client";
 
 import ScrollToTop from "@/components/ScrollToTop";
+import { ReduxProviders } from "@/redux/provider";
 
 type Props = {
   children?: React.ReactNode;
@@ -8,9 +9,9 @@ type Props = {
 
 export const Providers = ({ children }: Props) => {
   return (
-    <>
+    <ReduxProviders>
       <ScrollToTop />
       {children}
-    </>
+    </ReduxProviders>
   );
 };

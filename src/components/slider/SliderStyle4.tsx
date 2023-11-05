@@ -55,7 +55,7 @@ const SliderStyle4 = () => {
               modules={[Autoplay]}
               direction={"vertical"}
               spaceBetween={25}
-              slidesPerView={5}
+              slidesPerView={4}
               loop
               autoplay={{
                 delay: 1,
@@ -84,7 +84,7 @@ const SliderStyle4 = () => {
               modules={[Autoplay]}
               direction={"vertical"}
               spaceBetween={25}
-              slidesPerView={5}
+              slidesPerView={4}
               loop
               autoplay={{
                 delay: 1,
@@ -113,7 +113,7 @@ const SliderStyle4 = () => {
               modules={[Autoplay]}
               direction={"vertical"}
               spaceBetween={25}
-              slidesPerView={5}
+              slidesPerView={4}
               loop
               autoplay={{
                 delay: 1,

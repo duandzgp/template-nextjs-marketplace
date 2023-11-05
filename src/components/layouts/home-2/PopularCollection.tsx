@@ -53,7 +53,7 @@ const PopularCollection = (props: PopularCollectionProps) => {
                     slidesPerView: 3,
                   },
                 }}
-                scrollbar={{ draggable: true }}
+                scrollbar={{ draggable: true, hide: true, enabled: false }}
               >
                 {data.map((item, index) => (
                   <SwiperSlide key={index}>

@@ -55,7 +55,7 @@ const TopSeller = (props: TopSellerProps) => {
                   slidesPerView: 9,
                 },
               }}
-              scrollbar={{ draggable: true }}
+              scrollbar={{ draggable: true, hide: true, enabled: false }}
             >
               {data.map((item, index) => (
                 <SwiperSlide key={index}>

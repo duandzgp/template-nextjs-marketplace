@@ -37,7 +37,7 @@ const SliderStyle1 = (props: SliderProps) => {
         spaceBetween={0}
         slidesPerView={1}
         navigation
-        scrollbar={{ draggable: true }}
+        scrollbar={{ draggable: true, hide: true, enabled: false }}
       >
         {data.map((item, index) => (
           <SwiperSlide key={index} className={item.class}>

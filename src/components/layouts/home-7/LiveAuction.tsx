@@ -133,7 +133,7 @@ const LiveAuction = () => {
                 }}
                 navigation
                 pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
+                scrollbar={{ draggable: true, hide: true, enabled: false }}
               >
                 {data.map((item, index) => (
                   <SwiperSlide key={index}>
