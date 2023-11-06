@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Accordion } from "react-bootstrap-accordion";
 import ExploreItem from "./ExploreItem";
 import todayPickData from "../../../assets/fake-data/data-today-pick";
+import { Accordion } from "react-bootstrap";
 
 interface ExploreProps {
   data: {
@@ -29,22 +29,27 @@ const Explore = (props: ExploreProps) => {
                   key={index}
                 >
                   <div className="content-wg-category">
-                    <Accordion title={item.title} show={true}>
-                      <form action="#">
-                        {item.content.map((itemm, index) => (
-                          <div key={index}>
-                            <label>
-                              {itemm.field}
-                              <input
-                                type="checkbox"
-                                defaultChecked={itemm.checked}
-                              />
-                              <span className="btn-checkbox"></span>
-                            </label>
-                            <br />
-                          </div>
-                        ))}
-                      </form>
+                    <Accordion key={index} defaultActiveKey={"0"}>
+                      <Accordion.Item eventKey={`${index}`}>
+                        <Accordion.Header>{item.title}</Accordion.Header>
+                        <Accordion.Body>
+                          <form action="#">
+                            {item.content.map((itemm, index) => (
+                              <div key={index}>
+                                <label>
+                                  {itemm.field}
+                                  <input
+                                    type="checkbox"
+                                    defaultChecked={itemm.checked}
+                                  />
+                                  <span className="btn-checkbox"></span>
+                                </label>
+                                <br />
+                              </div>
+                            ))}
+                          </form>
+                        </Accordion.Body>
+                      </Accordion.Item>
                     </Accordion>
                   </div>
                 </div>

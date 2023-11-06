@@ -3,7 +3,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Accordion } from "react-bootstrap-accordion";
+import { Accordion } from "react-bootstrap";
 
 const FAQ = () => {
   const [data] = useState([
@@ -76,8 +76,13 @@ const FAQ = () => {
             <div className="col-md-12">
               <div className="flat-accordion2">
                 {data.map((item, index) => (
-                  <Accordion key={index} title={item.title}>
-                    <p>{item.text}</p>
+                  <Accordion key={index} defaultActiveKey={"0"}>
+                    <Accordion.Item eventKey={`${index}`}>
+                      <Accordion.Header>{item.title}</Accordion.Header>
+                      <Accordion.Body>
+                        <p>{item.text}</p>
+                      </Accordion.Body>
+                    </Accordion.Item>
                   </Accordion>
                 ))}
               </div>

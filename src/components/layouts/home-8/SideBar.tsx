@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Accordion } from "react-bootstrap-accordion";
+import { Accordion } from "react-bootstrap";
 
 const SideBar = () => {
   const [dataCate] = useState([
@@ -87,21 +87,29 @@ const SideBar = () => {
       <div className="wrap-category">
         {dataCate.map((item, index) => (
           <div key={index} className="widget widget-category boder-bt">
-            <Accordion title={item.title} show={true}>
-              <form action="#">
-                {item.content.map((itemm, index) => (
-                  <div key={index}>
-                    <label>
-                      <span>{itemm.field}</span>
-                      <span className="pst-re">
-                        <input type="checkbox" defaultChecked={itemm.checked} />
-                        <span className="btn-checkbox"></span>
-                      </span>
-                    </label>
-                    <br />
-                  </div>
-                ))}
-              </form>
+            <Accordion key={index} defaultActiveKey={"0"}>
+              <Accordion.Item eventKey={`${index}`}>
+                <Accordion.Header>{item.title}</Accordion.Header>
+                <Accordion.Body>
+                  <form action="#">
+                    {item.content.map((itemm, index) => (
+                      <div key={index}>
+                        <label>
+                          <span>{itemm.field}</span>
+                          <span className="pst-re">
+                            <input
+                              type="checkbox"
+                              defaultChecked={itemm.checked}
+                            />
+                            <span className="btn-checkbox"></span>
+                          </span>
+                        </label>
+                        <br />
+                      </div>
+                    ))}
+                  </form>
+                </Accordion.Body>
+              </Accordion.Item>
             </Accordion>
           </div>
         ))}

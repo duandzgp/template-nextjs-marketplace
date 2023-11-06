@@ -1,11 +1,26 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 import Countdown from "react-countdown";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-const LiveAuction = (props) => {
+interface LiveAuctionItemProps {
+  img: StaticImageData;
+  title: string;
+  tags: string;
+  imgAuthor: StaticImageData;
+  nameAuthor: string;
+  price: string;
+  priceChange: string;
+  wishlist: string;
+  imgCollection: StaticImageData;
+  nameCollection: string;
+}
+interface LiveAuctionProps {
+  data: LiveAuctionItemProps[];
+}
+
+const LiveAuction = (props: LiveAuctionProps) => {
   const data = props.data;
 
   const [visible, setVisible] = useState(8);
@@ -22,7 +37,7 @@ const LiveAuction = (props) => {
           </div>
 
           {data.slice(0, visible).map((item, index) => (
-            <LiveAuctionItem key={index} item={item} />
+            <LiveAuctionItem key={index} {...item} />
           ))}
           {visible < data.length && (
             <div className="col-md-12 wrap-inner load-more text-center">
@@ -42,19 +57,15 @@ const LiveAuction = (props) => {
   );
 };
 
-LiveAuction.propTypes = {
-  data: PropTypes.array.isRequired,
-};
-
-const LiveAuctionItem = (props) => (
+const LiveAuctionItem = (props: LiveAuctionItemProps) => (
   <div className="fl-item col-xl-3 col-lg-6 col-md-6">
     <div className="sc-card-product">
       <div className="card-media">
         <Link href="/item-details-01">
-          <Image src={props.item.img} alt="axies" />
+          <Image src={props.img} alt="axies" />
         </Link>
         <Link href="/login" className="wishlist-button heart">
-          <span className="number-like">{props.item.wishlist}</span>
+          <span className="number-like">{props.wishlist}</span>
         </Link>
         <div className="featured-countdown">
           <span className="slogan"></span>
@@ -73,26 +84,26 @@ const LiveAuctionItem = (props) => (
       </div>
       <div className="card-title">
         <h5>
-          <Link href="/item-details-01">{props.item.title}</Link>
+          <Link href="/item-details-01">{props.title}</Link>
         </h5>
-        <div className="tags">{props.item.tags}</div>
+        <div className="tags">{props.tags}</div>
       </div>
       <div className="meta-info">
         <div className="author">
           <div className="avatar">
-            <Image src={props.item.imgAuthor} alt="axies" />
+            <Image src={props.imgAuthor} alt="axies" />
           </div>
           <div className="info">
             <span>Creator</span>
             <h6>
               {" "}
-              <Link href="/authors-02">{props.item.nameAuthor}</Link>{" "}
+              <Link href="/authors-02">{props.nameAuthor}</Link>{" "}
             </h6>
           </div>
         </div>
         <div className="price">
           <span>Current Bid</span>
-          <h5> {props.item.price}</h5>
+          <h5> {props.price}</h5>
         </div>
       </div>
     </div>
