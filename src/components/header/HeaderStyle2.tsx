@@ -1,11 +1,9 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import DarkMode from "./DarkMode";
-import logodark from "../../assets/images/logo/logo3.png";
-
+import logodark from "../../assets/images/logo/Logo3.png";
 import avt from "../../assets/images/avatar/avt-2.jpg";
 import imgsun from "../../assets/images/icon/sun.png";
-
 import Link from "next/link";
 import Image from "next/image";
 import menus from "@/utils/menu";
