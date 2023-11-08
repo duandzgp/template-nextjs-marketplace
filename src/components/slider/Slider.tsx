@@ -81,13 +81,13 @@ const SliderItem = (props: SliderItemProps) => (
                   <p className="sub-heading">{props.description}</p>
                   <div className="flat-bt-slider flex style2">
                     <Link
-                      href="/explore-01"
+                      href="#"
                       className="sc-button header-slider style style-1 rocket fl-button pri-1"
                     >
                       <span>Explore</span>
                     </Link>
                     <Link
-                      href="/create-item"
+                      href="/create-event"
                       className="sc-button header-slider style style-1 note fl-button pri-1"
                     >
                       <span>Create</span>

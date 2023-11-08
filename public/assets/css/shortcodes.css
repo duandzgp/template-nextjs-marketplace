@@ -222,6 +222,12 @@
   transition: all 0.3s ease;
 }
 
+.sc-button:disabled {
+  color: #343444;
+  border-color: #343444 !important;
+  pointer-events: none;
+}
+
 .sc-button:hover,
 .sc-button.active {
   border-color: transparent;
@@ -8436,4 +8442,34 @@ button.accordion-button {
 .slider-labels .title {
   color: #8a8aa0;
   margin-right: 3px;
+}
+
+.btn-select-ticket {
+  cursor: pointer !important;
+  border: 2px solid transparent;
+}
+
+.btn-select-ticket-active {
+  cursor: pointer !important;
+  border: 2px solid var(--primary-color3);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-select-ticket:hover {
+  border: 2px solid var(--primary-color3);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.create-event-item-container {
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1px solid white;
 }

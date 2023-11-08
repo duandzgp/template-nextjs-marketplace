@@ -1,9 +1,11 @@
 import * as React from "react";
 import imgsun from "../../assets/images/icon/sun.png";
+import imgmoon from "../../assets/images/icon/moon-2.png";
 import Link from "next/link";
 import Image from "next/image";
 
 const DarkMode = () => {
+  const [statusDarkMode, setStatusDarkMode] = React.useState<boolean>(false);
   let clickedClass = "clicked";
   let body: HTMLElement;
 
@@ -21,28 +23,31 @@ const DarkMode = () => {
     } else {
       body.classList.add(darkTheme);
     }
-  }, []);
+  });
 
   const switchTheme = (e: any) => {
     if (theme === darkTheme) {
-      body.classList.replace(darkTheme, lightTheme);
-      e.target.classList.remove(clickedClass);
+      body?.classList?.replace(darkTheme, lightTheme);
+      e?.target?.classList?.remove(clickedClass);
       localStorage.setItem("theme", "light");
       theme = lightTheme;
+      setStatusDarkMode(false);
     } else {
-      body.classList.replace(lightTheme, darkTheme);
-      e.target.classList.add(clickedClass);
+      body?.classList?.replace(lightTheme, darkTheme);
+      e?.target?.classList?.add(clickedClass);
       localStorage.setItem("theme", "is_dark");
       theme = darkTheme;
+      setStatusDarkMode(true);
     }
   };
+
   return (
     <div className="mode_switcher">
       <h6>
         Dark mode <strong>Available</strong>
       </h6>
-      <Link href="#" onClick={(e) => switchTheme(e)}>
-        <Image src={imgsun} alt="" />
+      <Link href={"#"} onClick={(e) => switchTheme(e)}>
+        <Image src={statusDarkMode ? imgmoon : imgsun} alt="darkmode" />
       </Link>
     </div>
   );

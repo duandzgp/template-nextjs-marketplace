@@ -1,22 +1,25 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Modal } from "react-bootstrap";
 
 interface SuccessModalProps {
   show: boolean;
   onHide: () => void;
+  onClickBtn: () => void;
+  title: string;
+  content: ReactNode;
+  textButton: string;
 }
 
 const SuccessModal = (props: SuccessModalProps) => {
   return (
-    <Modal show={props.show} onHide={props.onHide}>
-      <Modal.Header closeButton></Modal.Header>
+    <Modal show={props.show}>
+      <Modal.Header closeButton onClick={props.onHide}></Modal.Header>
       <div className="modal-body space-y-20 pd-40">
-        <h3 className="text-center">Your Bidding Successfuly Added</h3>
-        <p className="text-center">
-          your bid <span className="price color-popup">(4ETH) </span> has been
-          listing to our database
-        </p>
-        <button className="btn btn-primary"> Watch the listings</button>
+        <h3 className="text-center">{props.title}</h3>
+        <p className="text-center">{props.content}</p>
+        <button className="btn btn-primary" onClick={props.onClickBtn}>
+          {props.textButton}
+        </button>
       </div>
     </Modal>
   );
