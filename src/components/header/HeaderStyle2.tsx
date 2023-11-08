@@ -1,9 +1,11 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import DarkMode from "./DarkMode";
-import logodark from "../../assets/images/logo/logo_dark.png";
+import logodark from "../../assets/images/logo/logo3.png";
+
 import avt from "../../assets/images/avatar/avt-2.jpg";
-import coin from "../../assets/images/logo/coin.svg";
+import imgsun from "../../assets/images/icon/sun.png";
+
 import Link from "next/link";
 import Image from "next/image";
 import menus from "@/utils/menu";
@@ -187,7 +189,7 @@ const HeaderStyle2 = () => {
                           </Link>
                         </div>
                         <div className="d-flex align-items-center mt-10">
-                          <Image className="coin" src={coin} alt="/" />
+                          <Image className="coin" src={imgsun} alt="/" />
                           <div className="info ml-10">
                             <p className="text-sm font-book text-gray-400">
                               Balance
