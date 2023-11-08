@@ -32,6 +32,7 @@ const CreateEvent = () => {
     watch,
     control,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
   const {
     fields: fieldsTicket,
@@ -43,6 +44,8 @@ const CreateEvent = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    console.log("submit");
+
     const tickets = data.tickets?.map((v) => ({
       name: v.name,
       amount: Number(v.amount),
@@ -66,7 +69,6 @@ const CreateEvent = () => {
   };
 
   const imageEvent = watch("image");
-  //   const tickets = watch("tickets");
 
   const handleAddTicket = () => {
     const newItem = {
@@ -82,6 +84,11 @@ const CreateEvent = () => {
 
   const handleRemoveTicket = (index: number) => {
     removeTicket(index);
+  };
+
+  const handleCloseModal = () => {
+    reset();
+    onCloseModal();
   };
 
   return (
@@ -189,6 +196,7 @@ const CreateEvent = () => {
                     <button
                       onClick={handleAddTicket}
                       className="sc-button loadmore bag fl-button pri-3 mb-5 mt-3"
+                      type="button"
                     >
                       <span>Add Ticket</span>
                     </button>
@@ -207,7 +215,7 @@ const CreateEvent = () => {
         </div>
       </div>
       <SuccessModal
-        onHide={onCloseModal}
+        onHide={handleCloseModal}
         show={isOpenModal}
         content={"Your bid has been listing to marketplace"}
         onClickBtn={btnAcceptModal}

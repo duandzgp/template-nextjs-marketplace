@@ -73,7 +73,7 @@ const SliderItem = (props: SliderItemProps) => (
             <div className="themesflat-container ">
               <div className="wrap-heading flat-slider flex">
                 <div className="content">
-                  <h2 className="heading">{props.title_1}</h2>
+                  {/* <h2 className="heading">{props.title_1}</h2> */}
                   <h1 className="heading mb-style">
                     <span className="tf-text s1">{props.title_2}</span>
                   </h1>
@@ -84,13 +84,13 @@ const SliderItem = (props: SliderItemProps) => (
                       href="#"
                       className="sc-button header-slider style style-1 rocket fl-button pri-1"
                     >
-                      <span>Explore</span>
+                      <span>Marketplace</span>
                     </Link>
                     <Link
                       href="/create-event"
                       className="sc-button header-slider style style-1 note fl-button pri-1"
                     >
-                      <span>Create</span>
+                      <span>Create Event</span>
                     </Link>
                   </div>
                 </div>

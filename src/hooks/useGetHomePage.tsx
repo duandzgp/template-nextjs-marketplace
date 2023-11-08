@@ -30,8 +30,6 @@ export const useGetHomePage = () => {
       },
     });
 
-    console.log(data, "data");
-
     setListEvent(data?.data ?? []);
     setCurrenPage(Number(data?.current_page) ?? 0);
     setTotalPage(Number(data?.total_pages) ?? 0);

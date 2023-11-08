@@ -15,7 +15,6 @@ export const useCreateEvent = () => {
   };
 
   const createEvent = async (data: any) => {
-    console.log(data, "data");
     try {
       await api.post("/php-nft-ticket/api/create_event.php", data);
       setIsOpenModal(true);

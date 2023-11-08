@@ -146,30 +146,17 @@ const HeaderStyle2 = () => {
                 <nav id="main-nav" className="main-nav" ref={menuLeft}>
                   <ul id="menu-primary-menu" className="menu">
                     {menus.map((data, index) => (
-                      <li
-                        key={index}
-                        onClick={() => handleOnClick(index)}
-                        className={`menu-item ${
-                          data.namesub ? "menu-item-has-children" : ""
-                        } ${activeIndex === index ? "active" : ""} `}
-                      >
-                        <Link href="#">{data.name}</Link>
-                        {data.namesub && (
-                          <ul className="sub-menu">
-                            {data.namesub.map((submenu) => (
-                              <li
-                                key={submenu.id}
-                                className={
-                                  pathname === submenu.links
-                                    ? "menu-item current-item"
-                                    : "menu-item"
-                                }
-                              >
-                                <Link href={submenu.links}>{submenu.sub}</Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                      <li key={index} onClick={() => handleOnClick(index)}>
+                        <Link
+                          className={
+                            pathname === data.links
+                              ? "active-menu"
+                              : "menu-market"
+                          }
+                          href={data.links}
+                        >
+                          {data.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

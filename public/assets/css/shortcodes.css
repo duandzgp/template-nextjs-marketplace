@@ -8473,3 +8473,19 @@ button.accordion-button {
   border-radius: 10px;
   border: 1px solid white;
 }
+
+.menu-market {
+  /* color: white !important; */
+}
+
+.active-menu {
+  background: linear-gradient(216.56deg, #e250e5 5.32%, #4b50e6 94.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu-market:hover {
+  background: linear-gradient(216.56deg, #e250e5 5.32%, #4b50e6 94.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

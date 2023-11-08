@@ -2,10 +2,7 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import DarkMode from "./DarkMode";
-import logoheader from "../../assets/images/logo/logo.png";
-import logoheader2x from "../../assets/images/logo/logo@2x.png";
-import logodark from "../../assets/images/logo/logo_dark.png";
-import logodark2x from "../../assets/images/logo/logo_dark@2x.png";
+import logodark from "../../assets/images/logo/logo3.png";
 import imgsun from "../../assets/images/icon/sun.png";
 import avt from "../../assets/images/avatar/avt-2.jpg";
 import { usePathname } from "next/navigation";
@@ -43,10 +40,6 @@ const Header = () => {
     btnToggle?.current?.classList?.toggle("active");
   };
 
-  const searchBtn = () => {
-    btnSearch?.current?.classList?.toggle("active");
-  };
-
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const handleOnClick = (index: number) => {
     setActiveIndex(index);
@@ -61,19 +54,17 @@ const Header = () => {
               <div className="wrap-box flex">
                 <div id="site-logo" className="clearfix">
                   <div id="site-logo-inner">
-                    <Link href="/" rel="home" className="main-logo">
+                    <Link href="/" rel="home" className="">
                       <Image
                         className="logo-dark"
                         id="logo_header"
                         src={logodark}
-                        // srcSet={`${logodark2x}`}
                         alt="nft-gaming"
                       />
                       <Image
                         className="logo-light"
                         id="logo_header"
-                        src={logoheader}
-                        // srcSet={`${logoheader2x}`}
+                        src={logodark}
                         alt="nft-gaming"
                       />
                     </Link>
@@ -89,72 +80,22 @@ const Header = () => {
                 <nav id="main-nav" className="main-nav" ref={menuLeft}>
                   <ul id="menu-primary-menu" className="menu">
                     {menus.map((data, index) => (
-                      <li
-                        key={index}
-                        onClick={() => handleOnClick(index)}
-                        className={`menu-item ${
-                          data.namesub ? "menu-item-has-children" : ""
-                        } ${activeIndex === index ? "active" : ""} `}
-                      >
-                        <Link href={data.links}>{data.name}</Link>
-                        {data.namesub && (
-                          <ul className="sub-menu">
-                            {data.namesub.map((submenu) => (
-                              <li
-                                key={submenu.id}
-                                className={
-                                  pathname === submenu.links
-                                    ? "menu-item current-item"
-                                    : "menu-item"
-                                }
-                              >
-                                <Link href={submenu.links}>{submenu.sub}</Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                      <li key={index} onClick={() => handleOnClick(index)}>
+                        <Link
+                          className={
+                            pathname === data.links
+                              ? "active-menu"
+                              : "menu-market"
+                          }
+                          href={data.links}
+                        >
+                          {data.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </nav>
                 <div className="flat-search-btn flex">
-                  <div className="header-search flat-show-search" id="s1">
-                    <Link
-                      href="#"
-                      className="show-search header-search-trigger"
-                      onClick={searchBtn}
-                    >
-                      <i className="far fa-search"></i>
-                    </Link>
-                    <div
-                      className="top-search"
-                      ref={btnSearch as React.RefObject<HTMLDivElement>}
-                    >
-                      <form
-                        action="#"
-                        method="get"
-                        role="search"
-                        className="search-form"
-                      >
-                        <input
-                          type="search"
-                          id="s"
-                          className="search-field"
-                          placeholder="Search..."
-                          name="s"
-                          title="Search for"
-                          required={true}
-                        />
-                        <button
-                          className="search search-submit"
-                          type="submit"
-                          title="Search"
-                        >
-                          <i className="icon-fl-search-filled"></i>
-                        </button>
-                      </form>
-                    </div>
-                  </div>
                   <div className="sc-btn-top mg-r-12" id="site-header">
                     <Link
                       href="/wallet-connect"
